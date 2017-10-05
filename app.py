@@ -1,6 +1,7 @@
 import sys, json, requests
 from flask import Flask, request
 from nlp import response as nlp
+import os
 
 
 
@@ -14,7 +15,7 @@ def message_handler():
 		"""
 
 		# get the user's input and store in user_input variable.
-		user_input = "Hello"
+		user_input = "What's up?"
 
 		"""
 		TEXT PROCESSING CODE
@@ -22,10 +23,10 @@ def message_handler():
 		"""
 		nlp_handler = nlp.Response()
 		responseText = nlp_handler.get_response(user_input)
-		print(responseText)
-
-		# responseText holds the output
-		# responseText goes into text to speech API
+		
+		#Removing single quotes in output string and converting text to speech
+		output = responseText.translate(str.maketrans({"'":None}))
+		os.system("say '%s'" % output)
 
 
 
