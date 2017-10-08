@@ -1,0 +1,46 @@
+version: "3"
+services:
+
+
+    db:
+        image: mysql:5.7
+        volumes:
+            - db_data:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABASE: kiki
+            MYSQL_USER: root
+            MYSQL_PASSWORD: password
+    web:
+        image: aviralmansingka/kiki
+        depends_on:
+            - db
+        deploy:
+            replicas: 2
+            resources:
+                limits:
+                    cpus: "0.1"
+                    memory: 50M
+                restart_policy:
+                    condition: on-failure
+        ports:
+            - "80:80"
+        networks:
+            - webnet
+
+    visualizer:
+        image: dockersamples/visualizer:stable
+        ports:
+            - "8080:8080"
+        volumes:
+            - "/var/run/docker.sock:/var/run/docker.sock"
+        deploy:
+            placement:
+                constraints: [node.role == manager]
+        networks:
+            - webnet
+networks:
+    webnet:
+
+volumes:
+    db_data:

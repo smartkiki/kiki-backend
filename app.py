@@ -1,8 +1,4 @@
-import sys, json, requests
-from flask import Flask, request
-from nlp import response as nlp
-from stt import speech_recognizer as stt
-import os
+from flask import Flask
 
 app = Flask(__name__)
 
