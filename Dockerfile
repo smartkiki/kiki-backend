@@ -4,7 +4,6 @@ WORKDIR /app
 
 ADD . /app
 
-RUN apt-get update
 RUN apt-get install -y libmysqlclient-dev
 RUN pip install -r requirements.txt
 
