@@ -14,5 +14,5 @@ class Audio(Base):
     __tablename__ = 'audio'
 
     id = Column(Integer, primary_key=True)
-    parent_id = Column(Integer, ForeignKey('User.id'))
-    path = Column(String)
+    parent_id = Column(Integer, ForeignKey('user.id'))
+    path = Column(String(100))

@@ -4,6 +4,8 @@ from flask import request
 from camera.object_recognition import classify_image
 from camera.object_recognition import extract_image
 
+from models.user import User
+
 
 app = Flask(__name__)
 

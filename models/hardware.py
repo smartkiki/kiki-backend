@@ -21,5 +21,5 @@ class Hardware(Base):
     __tablename__ = 'hardware'
 
     id = Column(Integer, primary_key=True)
-    parent_id = Column(Integer, ForeignKey('Settings.id'))
+    parent_id = Column(Integer, ForeignKey('settings.id'))
     type = Column(Enum(HardwareType))

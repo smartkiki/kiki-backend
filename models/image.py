@@ -14,5 +14,10 @@ class Image(Base):
     __tablename__ = 'image'
 
     id = Column(Integer, primary_key=True)
-    parent_id = Column(Integer, ForeignKey('User.id'))
-    path = Column(String)
+    parent_id = Column(Integer, ForeignKey('user.id'))
+    path = Column(String(100))
+
+    def __init__(self, id, parent_id, path):
+        self.id = id
+        self.parent_id = parent_id
+        self.path = path

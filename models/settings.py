@@ -14,7 +14,7 @@ class Settings(Base):
     __tablename__ = 'setting'
 
     id = Column(Integer, primary_key=True)
-    parent_id = Column(Integer, ForeignKey('User.id'))
+    parent_id = Column(Integer, ForeignKey('user.id'))
     calendar = Column(Boolean)
     weather = Column(Boolean)
     alarm = Column(Boolean)
