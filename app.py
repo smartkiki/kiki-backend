@@ -15,7 +15,7 @@ def hello_world():
 
 @app.route('/object_recognition', methods=['POST'])
 def object_recognition():
-    image = request.files['file']
+    image = extract_image(request.files['file'])
     prediction = classify_image(image)
     return prediction
 
