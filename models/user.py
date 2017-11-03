@@ -17,7 +17,7 @@ from models.settings import Settings
 class User(Base):
     __tablename__ = 'user'
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(30))
     email = Column(String(30))
     images = relationship("Image")
@@ -25,8 +25,6 @@ class User(Base):
     audios = relationship("Audio")
     settings = relationship("Settings")
 
-    def __init__(self, id, name, email):
-        self.id = id
+    def __init__(self, name, email):
         self.name = name
         self.email = email
-
