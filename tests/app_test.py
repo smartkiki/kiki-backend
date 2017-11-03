@@ -1,5 +1,4 @@
 import mock
-import pytest
 
 from app import object_recognition
 from camera.object_recognition import extract_image

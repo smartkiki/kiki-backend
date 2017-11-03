@@ -2,12 +2,8 @@ import enum
 
 from sqlalchemy import Column
 from sqlalchemy import Integer
-from sqlalchemy import String
-from sqlalchemy import Boolean
 from sqlalchemy import Enum
 from sqlalchemy import ForeignKey
-
-from sqlalchemy.orm import relationship
 
 from models.base import Base
 
@@ -17,9 +13,14 @@ class HardwareType(enum.Enum):
     microphone = 1
     speaker = 2
 
+
 class Hardware(Base):
     __tablename__ = 'hardware'
 
     id = Column(Integer, primary_key=True)
     parent_id = Column(Integer, ForeignKey('settings.id'))
     type = Column(Enum(HardwareType))
+
+    def __init__(self, parent_id, type):
+        self.parent_id = parent_id
+        self.type = type
