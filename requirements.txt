@@ -16,7 +16,7 @@ ipdb==0.10.3
 ipython==5.5.0
 ipython-genutils==0.2.0
 itsdangerous==0.24
-Jinja2==2.9.6
+Jinja2==2.11.3
 Keras==2.0.8
 Markdown==2.6.9
 MarkupSafe==1.0
